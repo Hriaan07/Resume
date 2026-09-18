@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hriaan Shah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EEF1F5;
+    --bg-panel: #FFFFFF;
+    --bg-tint: #E4E9EF;
+    --ink: #12161F;
+    --ink-soft: #545E6E;
+    --ink-faint: #8891A0;
+    --line: #D2D9E1;
+    --coral: #D8471F;
+    --coral-tint: #FBE3D9;
+    --teal: #12594D;
+    --teal-tint: #DCEEE9;
+    --font-display: 'Space Grotesk', 'Arial Narrow', Helvetica, Arial, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+ 
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101319;
+      --bg-panel: #171B23;
+      --bg-tint: #1C212B;
+      --ink: #ECEEF2;
+      --ink-soft: #AAB2C0;
+      --ink-faint: #6D7686;
+      --line: #2A2F3A;
+      --coral: #FF7A47;
+      --coral-tint: #35211A;
+      --teal: #4FBFA8;
+      --teal-tint: #16261F;
+    }
+  }
+ 
+  :root[data-theme="dark"] {
+    --bg: #101319;
+    --bg-panel: #171B23;
+    --bg-tint: #1C212B;
+    --ink: #ECEEF2;
+    --ink-soft: #AAB2C0;
+    --ink-faint: #6D7686;
+    --line: #2A2F3A;
+    --coral: #FF7A47;
+    --coral-tint: #35211A;
+    --teal: #4FBFA8;
+    --teal-tint: #16261F;
+  }
+ 
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+ 
+  a { color: inherit; }
+ 
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+ 
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 560px) {
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 0.82rem; }
+  }
+ 
+  /* ---------- HERO ---------- */
+  header.hero {
+    padding: 76px 0 56px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-kicker {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+  }
+  .hero-lede {
+    max-width: 58ch;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin: 0 0 34px;
+  }
+  .hero-lede strong { color: var(--ink); font-weight: 600; }
+ 
+  .waveform {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 44px;
+    margin-bottom: 8px;
+  }
+  .waveform span {
+    display: block;
+    width: 5px;
+    border-radius: 2px;
+    background: var(--coral);
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scaleY(0.35); }
+    50% { transform: scaleY(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .waveform span { animation: none; transform: scaleY(0.7); }
+    html { scroll-behavior: auto; }
+  }
+ 
+  /* ---------- SECTIONS ---------- */
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+ 
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .section-note {
+    font-size: 0.92rem;
+    color: var(--ink-faint);
+    text-align: right;
+    max-width: 26ch;
+  }
+ 
+  /* ---------- BUILD CARDS ---------- */
+  .build {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px 24px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+  }
+  .build:first-of-type { border-top: none; padding-top: 0; }
+  .build-mark {
+    width: 10px;
+    border-radius: 5px;
+    background: var(--coral);
+  }
+  .build.tech .build-mark { background: var(--teal); }
+  .build-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .build-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--coral);
+    background: var(--coral-tint);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+  .build.tech .build-tag { color: var(--teal); background: var(--teal-tint); }
+  .build p { margin: 0; color: var(--ink-soft); max-width: 62ch; }
+  .build p + p { margin-top: 12px; }
+  .build-link {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--coral);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .build.tech .build-link { color: var(--teal); }
+  .build-link:hover { border-bottom-color: currentColor; }
+ 
+  /* ---------- PRACTICE GRID ---------- */
+  .practice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
+  }
+  @media (max-width: 620px) {
+    .practice-grid { grid-template-columns: 1fr; }
+  }
+  .practice-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--coral);
+    flex-shrink: 0;
+  }
+  .practice-item p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
+ 
+  /* ---------- DESIGN LIST ---------- */
+  .design-item {
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .design-item:first-of-type { border-top: none; padding-top: 0; }
+  .design-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .design-item .where {
+    font-size: 0.85rem;
+    color: var(--teal);
+  }
+  .design-item p {
+    margin: 4px 0 0;
+    color: var(--ink-soft);
+    max-width: 64ch;
+  }
+ 
+  /* ---------- CONTACT ---------- */
+  footer {
+    padding: 60px 0 70px;
+  }
+  footer h2 {
+    font-size: 1.7rem;
+    margin-bottom: 14px;
+  }
+  .contact-line {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  .contact-line a {
+    color: var(--coral);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+  .sign-off {
+    color: var(--ink-faint);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+<body>
+ 
+<nav>
+  <div class="wrap">
+    <a class="nav-name" href="#top">Hriaan Shah</a>
+    <div class="nav-links">
+      <a href="#building">Building</a>
+      <a href="#practice">Practice</a>
+      <a href="#design">Design</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+ 
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="waveform" aria-hidden="true">
+      <span style="animation-delay:0s"></span>
+      <span style="animation-delay:0.1s"></span>
+      <span style="animation-delay:0.2s"></span>
+      <span style="animation-delay:0.05s"></span>
+      <span style="animation-delay:0.3s"></span>
+      <span style="animation-delay:0.15s"></span>
+      <span style="animation-delay:0.25s"></span>
+    </div>
+    <p class="hero-kicker">Hriaan Shah &mdash; 8th Grade, Next School</p>
+    <h1>I practice on a schedule &mdash; on a kit, on a pitch, and in code.</h1>
+    <p class="hero-lede">Most of what's below started as a <strong>30-day habit</strong> before it became a skill: drumming, football, cricket, photography, and building apps that make other people's 30 days easier too.</p>
+  </div>
+</header>
+ 
+<section id="building">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What I'm building</h2>
+      <p class="section-note">Two apps, built to fix problems I ran into myself.</p>
+    </div>
+ 
+    <div class="build sport">
+      <div class="build-mark"></div>
+      <div class="build-body">
+        <span class="build-tag">App &middot; solo build</span>
+        <h3>Train 30</h3>
+        <p>An app for athletes who want to commit fully to their sport for 30 days straight &mdash; built around football, basketball, and cricket. It's for anyone who wants the structure of a coach without needing one standing over them.</p>
+        <p><a class="build-link" href="https://find-flow-state-diligent.base44.app" target="_blank" rel="noopener">find-flow-state-diligent.base44.app &rarr;</a></p>
+      </div>
+    </div>
+ 
+    <div class="build sport">
+      <div class="build-mark"></div>
+      <div class="build-body">
+        <span class="build-tag">App &middot; solo build</span>
+        <h3>Studdy Buddy</h3>
+        <p>A study companion app, built to make sitting down to study feel less like a chore and easier to actually stick with.</p>
+        <p><a class="build-link" href="https://delightful-study-buddy-flow.base44.app" target="_blank" rel="noopener">delightful-study-buddy-flow.base44.app &rarr;</a></p>
+      </div>
+    </div>
+ 
+    <div class="build tech">
+      <div class="build-mark"></div>
+      <div class="build-body">
+        <span class="build-tag">Platform &middot; built with a partner</span>
+        <h3>What Now</h3>
+        <p>A platform built for the whole IB PYP programme, designed with a partner to help PYP students find a passion project &mdash; something they'll actually want to keep working on, not just something to hand in for a grade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="practice">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where I show up</h2>
+      <p class="section-note">The stuff I do because I want to get better at it, not because it's due.</p>
+    </div>
+ 
+    <div class="practice-grid">
+      <div class="practice-item">
+        <h3><span class="dot"></span>Drums</h3>
+        <p>Almost 2 years in. Currently working through songs like "Yellow," "Seven Nation Army," and "Beggin'."</p>
+      </div>
+      <div class="practice-item">
+        <h3><span class="dot"></span>Football</h3>
+        <p>The sport that started the Train 30 idea &mdash; still the one I put the most hours into.</p>
+      </div>
+      <div class="practice-item">
+        <h3><span class="dot"></span>Cricket</h3>
+        <p>Part of the DSO cricket team.</p>
+      </div>
+      <div class="practice-item">
+        <h3><span class="dot"></span>Photography</h3>
+        <p>Attended a photography workshop that took our group outside school to shoot in new locations &mdash; still the habit I keep going with a camera in hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="design">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Design &amp; other projects</h2>
+      <p class="section-note">Where sport and drums took a back seat to design work and a stage.</p>
+    </div>
+ 
+    <div class="design-item">
+      <h3>Preschool classroom design &mdash; Bihar</h3>
+      <span class="where">Design internship, with friends</span>
+      <p>Designed classrooms for a preschool in Bihar as part of an internship. Used AI tools to generate the first round of classroom concepts, then rebuilt them from scratch after feedback from our mentor.</p>
+    </div>
+ 
+    <div class="design-item">
+      <h3>Dental clinic websites</h3>
+      <span class="where">Web development</span>
+      <p>Built websites for Global Dental Clinic and Smile Radiance Dental Clinic while learning app and web development.</p>
+    </div>
+ 
+    <div class="design-item">
+      <h3>Vibe</h3>
+      <span class="where">Volunteer, decor</span>
+      <p>Volunteered on the decor team for Vibe.</p>
+    </div>
+ 
+    <div class="design-item">
+      <h3>We Are the World</h3>
+      <span class="where">Dance</span>
+      <p>Performed as part of We Are the World.</p>
+    </div>
+  </div>
+</section>
+ 
+<footer id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p class="contact-line">Reach me at <a href="mailto:hriaan.shah@nextschool.org">hriaan.shah@nextschool.org</a> for anything above.</p>
+    <p class="sign-off">&mdash; Hriaan</p>
+  </div>
+</footer>
+ 
+</body>
+</html>
